@@ -8,9 +8,9 @@
 * The ability to add a product to the cart (can use local storage).
 * The ability to checkout using one of three pre-determined number combinations
 
-⋅⋅⋅4242-4242-4242-4242
-⋅⋅⋅5555-5555-5555-4444
-⋅⋅⋅3782-822463-10005
+4242-4242-4242-4242
+5555-5555-5555-4444
+3782-822463-10005
 
 * Confirmation that the order was accepted.
 * Must be built with React and CSS modules

@@ -46,7 +46,7 @@ Go to Github to create a pull request on the `develop` repository from your `fea
 ## Creating an app with React ##
 
 ```sh
-sudo port install yarn
+brew install yarn
 yarn create react-app my-app
 cd my-app
 yarn start

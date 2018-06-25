@@ -1,0 +1,20 @@
+[
+  {
+    "name":"Cool item",
+    "cost":23,
+    "id":1,
+    "imgurl": "./img/logo.svg"
+  },
+  {
+    "name":"Not so Cool item",
+    "cost":13,
+    "id":2,
+    "imgurl":"./img/logo.svg"
+  },
+  {
+    "name":"Really Awesome item",
+    "cost":99,
+    "id":3,
+    "imgurl":"./img/logo.svg"
+  }
+]

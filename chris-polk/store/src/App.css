@@ -32,3 +32,23 @@
   color: blue;
   text-align: left;
 }
+
+.cart {
+    color: red;
+    text-align: right;
+    padding-right: 20px
+}
+
+.purchase {
+
+    color:pink;
+}
+
+.price {
+    color: green;
+}
+
+.normal-text {
+  color: black;
+  font-weight: normal;
+}

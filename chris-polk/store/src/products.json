@@ -12,6 +12,24 @@
    "id": 2,
    "name": "Chris",
    "price": 20
+},
+
+{
+    "id": 3,
+    "name" : "C-2PO",
+    "price": 100
+},
+
+{
+    "id": 4,
+    "name" : "Polk",
+    "price": 200
+},
+
+{
+    "id": 5,
+    "name" : "CP2",
+    "price": 1000
 }
 
 ]

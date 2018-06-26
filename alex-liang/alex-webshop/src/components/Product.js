@@ -40,7 +40,6 @@ class Product extends Component{
     return(
       <div>{itemList}
       </div>
-
     );
   }
 }

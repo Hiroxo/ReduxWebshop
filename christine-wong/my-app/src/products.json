@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Digital Piano",
+    "id": 1,
+    "image": "digital-piano.jpg",
+    "price": 500
+  },
+  {
+    "name": "Damper Sustain Pedal",
+    "id": 2,
+    "image": "piano-pedal.jpg",
+    "price": 17.50
+  },
+  {
+    "name": "4/4 Violin Set",
+    "id": 3,
+    "image": "violin-set.jpg",
+    "price": 300
+  },
+  {
+    "name": "Kun Bravo 4/4 Violin Collapsible Shoulder Rest",
+    "id": 4,
+    "image": "violin-shoulder-rest.jpg",
+    "price": 15
+  },
+  {
+    "name": "Pirastro Olive Rosin",
+    "id": 5,
+    "image": "rosin.jpg",
+    "price": 10
+  },
+  {
+    "name": "Tuner",
+    "id": 6,
+    "image": "tuner.jpg",
+    "price": 15
+  },
+  {
+    "name": "Piano Sonata No. 8 in C minor Op. 13 'Pathetique' by Beethoven",
+    "id": 7,
+    "image": "piano-book.jpg",
+    "price": 15.50
+  },
+  {
+    "name": "Violin Book",
+    "id": 8,
+    "image": "violin-book.jpg",
+    "price": 12.50
+  }
+]

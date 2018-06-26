@@ -1,8 +1,5 @@
 .App {
-
 }
-
-
 .App-header {
   text-align: center;
   background-color: #222;
@@ -10,13 +7,9 @@
   padding: 20px;
   color: white;
 }
-
 .App-title {
   font-size: 1.5em;
 }
-
-
-
 .App-cart{
   text-align: right;
   border-radius: 20%;
@@ -31,11 +24,16 @@
   animation: App-cartpic-spin infinite 1s ;
   border-radius: 100%;
 }
+.item{
+  border: 5px solid blue;
+  margin: 30px;
+  border-radius: 25px;
+}
 .itemlist{
   text-align: center;
-
+  border: 5px solid red;
+  border-radius:20px;
 }
-
 .item-img{
   display: block;
   margin-left: auto;
@@ -43,11 +41,9 @@
   height:200px;
   width:200px;
 }
-
 .item-name{
   font-size: 2.5em;
 }
-
 @keyframes App-cartpic-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

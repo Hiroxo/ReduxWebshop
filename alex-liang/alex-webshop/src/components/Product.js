@@ -38,7 +38,9 @@ class Product extends Component{
       </div>
     );
     return(
-      <div>{itemList}
+      <div>
+        <h1>Cool Items For Sale!</h1>
+        {itemList}
       </div>
     );
   }

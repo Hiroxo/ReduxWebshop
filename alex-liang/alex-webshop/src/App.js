@@ -12,11 +12,33 @@ class App extends Component {
     super(props)
     this.state ={
       cartitems:[],
-      itemToAdd:[]
+      quantity:1,
+      currentitem:[]
+
     };
   }
-  addItemToCart = (itemToAdd) => {
+  changeQuant = (e,item) => {
+    this.setState({quantity:  e.target.value});
+    this.setState({currentitem: item});
+    alert("quantity = " + e.target.value);
+  }
+  addItemsToCart = (e,item) => {
+    /*
+    var i;
+    for (i=0;i<this.state.quantity;i++){
+      this.addItemToCart(item);
+      alert('adding item: ' + (i+1) );
+    };
+    e.preventDefault();
+  */}
+  addItemToCart = (e,itemToAdd) => {
+    itemToAdd.quantity=parseInt(this.state.quantity,10);
     this.setState({cartitems: this.state.cartitems.concat(itemToAdd)});
+    if (e !== undefined){
+      e.preventDefault();
+    }
+    console.log(JSON.stringify(this.state.cartitems))
+
   }
   render() {
     return (
@@ -25,11 +47,16 @@ class App extends Component {
           <div className="App-cart" alt="cartpic">
             {Shoppingcart(this.state)}
             {console.log(this.state.cartitems)}
+
           </div>
           <h1 className="App-title">Welcome to Alex's Cool Shop </h1> where you can definitely buy stuff
         </div>
         <div className="itemlist">
-           <Product addItemToCart={this.addItemToCart} products={products}/>
+           <Product
+             addItemsToCart={this.addItemsToCart}
+             changeQuant={this.changeQuant}
+             addItemToCart={this.addItemToCart}
+             products={products} />
         </div>
       </div>
     );

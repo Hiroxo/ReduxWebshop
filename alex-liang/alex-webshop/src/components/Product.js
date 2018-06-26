@@ -7,15 +7,7 @@ class Product extends Component{
   constructor(props){
     super(props);
     this.state={
-
-
-    }
-  }
-  addItemsToCart(item,quant){
-    var i;
-    for (i=0;i<quant;i++){
-      this.props.addItemToCart({item})
-    }
+    };
   }
   render() {
     let itemList = this.props.products.map((item) =>
@@ -28,22 +20,22 @@ class Product extends Component{
         </div>
         <div className='item-img'>
           <img src= {item.imgurl}  alt="item-pic"/>
-          <button onClick={(e)=>this.props.addItemToCart({item})}>
+          <button onClick={(e)=>this.props.addItemToCart(e,{item})}>
             Add {item.name} to Cart
           </button>
         </div>
         <div className='item-quant'>
-          <form>
+          <form onSubmit={(e)=>this.props.addItemToCart(e,{item})}>
             <label>
               Quantity:
-              <input type="text" name="quantity" />
             </label>
-            <input type="submit" value="Submit to cart?"/>
+            <input type="number" name='quantity' value={this.state.quantity} onChange={
+              (e) => this.props.changeQuant(e,{item})
+            }/>
+            <input type="submit" value="Add Item To Cart"/>
           </form>
-
         </div>
       </div>
-
     );
     return(
       <div>{itemList}

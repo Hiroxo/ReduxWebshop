@@ -12,27 +12,28 @@
 }
 .App-cart{
   text-align: right;
-  border-radius: 20%;
+  border-radius:0%;
   font-size: 1.2em;
 }
 .App-cartpic{
-  border-radius:100%;
+  border-radius:0%;
   text-align:left ;
+
 }
 .App-cartpic:hover{
   background-color:red;
   animation: App-cartpic-spin infinite 1s ;
   border-radius: 100%;
 }
-.item{
+.Item {
   border: 5px solid blue;
-  margin: 30px;
-  border-radius: 25px;
+  margin: 0px;
+  border-radius: 5px;
 }
-.itemlist{
+.Item-list{
   text-align: center;
   border: 5px solid red;
-  border-radius:20px;
+  border-radius:5px;
 }
 .item-img{
   display: block;
@@ -47,4 +48,19 @@
 @keyframes App-cartpic-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.Cart-list {
+  background-color: white;
+  color:black;
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+  text-align: center;
+  border-radius:5px;
+}
+.Cart-list:hover{
+
+
+
 }

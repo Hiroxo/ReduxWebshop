@@ -11,7 +11,7 @@ class Product extends Component{
   }
   render() {
     let itemList = this.props.products.map((item) =>
-      <div className='item' key={item.id}>
+      <div className='Item' key={item.id}>
         <div className='item-name'>
           {item.name}
         </div>

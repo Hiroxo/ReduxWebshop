@@ -47,7 +47,10 @@ class Checkout extends Component{
 
       let checkoutForm = (
         <div className="Checkout-Form">
-          <form className="Form" onSubmit={(e)=> this.props.validate(e,{currentItems})}>
+          <form className="Form" onSubmit={(e) => {
+            this.props.validate(e,{currentItems});
+            
+          }}>
             <h2>Payment Information </h2>
 
             <div className="Form-Item">

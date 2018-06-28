@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class Thankyou extends Component {
   render () {
+    this.props.resetValidation();
     return (
       <div className="Item-list">
         <h2>

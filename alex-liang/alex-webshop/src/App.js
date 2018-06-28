@@ -76,9 +76,15 @@ class App extends Component {
       if (parseInt(this.state.creditCardNumber,10) === creditCardNums[i]) {
         this.setState ({validation: true});
         this.setState ({cartItems:[]});
-      } else {this.setState({validation:false})
-        this.setState({creditCardError:'Your Credit Card Number is Invalid'})
+      } else {
+        this.setState({validation:false});
+        this.setState({creditCardError:'Your Credit Card Number is Invalid'});
       }
+    }
+  }
+  resetValidation = () => {
+    if (this.state.validation){
+      this.setState({validation:false});
     }
   }
   render() {
@@ -96,24 +102,25 @@ class App extends Component {
                 products={products}
               />
             }/>
-            <Route path='/Checkout' render={() => !this.state.validation ?(
+            <Route path='/Checkout' render={() => !this.state.validation ? (
               <Checkout
                 cartItems={this.state.cartItems}
                 removeItem={this.removeItem}
                 updateUserInfo={this.updateUserInfo}
                 validate={this.validate}
                 creditCardError={this.state.creditCardError}
+
               />
             ) : (
               <Redirect push to="/Success"/>)
-
             }/>
             <Route path='/About' component={About}/>
-
             <Route path='/Success' render={() =>
               <Thankyou
                 totalCost={this.state.totalCost}
                 email={this.state.email}
+                resetValidation={this.resetValidation}
+
               />
             }/>
 

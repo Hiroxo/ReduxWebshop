@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import './css/App.css';
 import Product from './components/Product.js';
 import products from './products.json';
+import About from './components/About.js';
+import Thankyou from './components/Thankyou.js';
 import Checkout from './components/Checkout.js';
 import Header from './components/Header.js';
-
+import { Redirect, Route, Switch } from "react-router-dom";
+import creditCardNums from './creditCardNumbers.json';
 
 class App extends Component {
   constructor(props){
@@ -13,6 +16,14 @@ class App extends Component {
       cartItems:[],
       quantity:1,
       currentItem:[],
+      totalCost:0,
+      Email:'',
+      Address:'',
+      State:'',
+      ZipCode:'',
+      creditCardNumber:0,
+      validation:false,
+      creditCardError:null
     };
   }
   removeItem = (e,index) => {
@@ -36,6 +47,15 @@ class App extends Component {
       this.setState({
         cartItems,
       });
+      let currentItems = this.state.cartItems
+      let { totalCost } = this.state;
+      let i;
+      for (i=0;i<(currentItems.length);i++){
+        totalCost= totalCost+((currentItems[i]['item']['cost'])*currentItems[i]['quantity'])
+      }
+      this.setState({
+        totalCost,
+      });
     } else {
       alert('check your quantity')
     }
@@ -43,26 +63,62 @@ class App extends Component {
       e.preventDefault();
     }
   }
+  updateUserInfo = (e) => {
+    e.preventDefault();
+    this.setState ({
+      [e.target.name] : e.target.value
+    })
+  }
+  validate = (e,items) => {
+    e.preventDefault();
+    let i;
+    for (i=0;i<creditCardNums.length;i++){
+      if (parseInt(this.state.creditCardNumber,10) === creditCardNums[i]) {
+        this.setState ({validation: true});
+        this.setState ({cartItems:[]});
+      } else {this.setState({validation:false})
+        this.setState({creditCardError:'Your Credit Card Number is Invalid'})
+      }
+    }
+  }
   render() {
     return (
       <div className="App">
-            <Header
-              cartItems={this.state.cartItems}
-              removeItem={this.removeItem}
-            />
-        <div className="Item-list">
-           <Product
-             changeQuant={this.changeQuant}
-             addItemToCart={this.addItemToCart}
-             products={products} />
+        <Header
+          cartItems={this.state.cartItems}
+          removeItem={this.removeItem}
+        />
+          <Switch>
+            <Route path='/Products' render={() =>
+              <Product
+                changeQuant={this.changeQuant}
+                addItemToCart={this.addItemToCart}
+                products={products}
+              />
+            }/>
+            <Route path='/Checkout' render={() => !this.state.validation ?(
+              <Checkout
+                cartItems={this.state.cartItems}
+                removeItem={this.removeItem}
+                updateUserInfo={this.updateUserInfo}
+                validate={this.validate}
+                creditCardError={this.state.creditCardError}
+              />
+            ) : (
+              <Redirect push to="/Success"/>)
+
+            }/>
+            <Route path='/About' component={About}/>
+
+            <Route path='/Success' render={() =>
+              <Thankyou
+                totalCost={this.state.totalCost}
+                email={this.state.email}
+              />
+            }/>
+
+          </Switch>
         </div>
-        <div className="Item-list">
-          <Checkout
-            cartItems={this.state.cartItems}
-            removeItem={this.removeItem}
-          />
-        </div>
-      </div>
     );
   }
 }

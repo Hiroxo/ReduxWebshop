@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../css/Header.css';
 import shoppingCart from '../shoppingcartsmall.png';
+import { Link} from "react-router-dom";
 
 
 class ShoppingCart extends Component{
@@ -35,29 +36,35 @@ class ShoppingCart extends Component{
     </div>
     )
     return(
-
           <div className="Item-list">
             {itemList}<br></br>
             Total Checkout: ${totalCost}
           </div>
-
     );
   }
+
   render(){
     return(
       <div className="App-header">
-        <div className="App-cart" alt="cartpic">
-          <div onMouseLeave={this.mouseLeave}>
-            <button className="App-cart" onMouseEnter={this.mouseEnter} >
+        <div className="App-nav" alt="cartpic">
+          <Link to='/About'>About</Link>
+          <Link to='/Products'>Cool Stuff For Sale!</Link>
+          <div className="App-cart" onMouseLeave={this.mouseLeave}>
+            <Link to='/Checkout'>
+            <button  onMouseEnter={this.mouseEnter} >
               <img src={shoppingCart} className="App-cartpic" alt="cartpic"/>
               {this.props.cartItems.length}
             </button>
+            </Link>
             <div className="Cart-list">
               {this.state.isMouseInside ? <div>{this.shoppingList()}</div> : null}
             </div>
           </div>
+
         </div>
-        <h1 className="App-title">Welcome to Alex's Cool Shop </h1> where you can definitely buy stuff
+
+        <h1 className="App-title">Welcome to Alex's Cool Shop </h1>
+        where you can definitely buy stuff
       </div>
     );
   }

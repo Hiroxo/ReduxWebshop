@@ -3,7 +3,7 @@
 .App-header {
   text-align: center;
   background-color: #222;
-  height: 150px;
+  height:auto;
   padding: 20px;
   color: white;
 }
@@ -35,15 +35,15 @@
   border: 5px solid red;
   border-radius:5px;
 }
-.item-img{
+.Item-img{
   display: block;
   margin-left: auto;
   margin-right: auto;
   height:200px;
   width:200px;
 }
-.item-name{
-  font-size: 2.5em;
+.Item-name{
+  font-size: 1.5em;
 }
 @keyframes App-cartpic-spin {
   from { transform: rotate(0deg); }
@@ -61,6 +61,27 @@
 }
 .Cart-list:hover{
 
+}
+.Form-Item{
+  text-align: right;
+  display: block;
+}
+.Form{
+  background-color: Yellow;
+  padding: 20px;
+}
+.App-nav{
+  display:flex;
+  justify-content: space-around;
+  border-radius: 20%;
+  font-size: 1.2em;
+}
+.Error-Message{
+  background-color: red;
+  font-weight: bold;
+  font-size: 1em;
 
-
+}
+.Fine-Print{
+  font-size: 0.2em;
 }

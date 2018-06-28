@@ -12,24 +12,24 @@ class Product extends Component{
   render() {
     let itemList = this.props.products.map((item) =>
       <div className='Item' key={item.id}>
-        <div className='item-name'>
+        <div className='Item-name'>
           {item.name}
         </div>
-        <div className='item-cost'>
+        <div className='Item-cost'>
           ${item.cost}
         </div>
-        <div className='item-img'>
+        <div className='Item-img'>
           <img src= {item.imgurl}  alt="item-pic"/>
           <button onClick={(e)=>this.props.addItemToCart(e,{item})}>
             Add {item.name} to Cart
           </button>
         </div>
-        <div className='item-quant'>
+        <div className='Item-quant'>
           <form onSubmit={(e)=>this.props.addItemToCart(e,{item})}>
             <label>
               Quantity:
             </label>
-            <input type="number" name='quantity' value={this.state.quantity} onChange={
+            <input type="number" name='quantity'  onChange={
               (e) => this.props.changeQuant(e,{item})
             }/>
             <input type="submit" value="Add Item To Cart"/>
@@ -38,7 +38,7 @@ class Product extends Component{
       </div>
     );
     return(
-      <div>
+      <div className="Item-list">
         <h1>Cool Items For Sale!</h1>
         {itemList}
       </div>

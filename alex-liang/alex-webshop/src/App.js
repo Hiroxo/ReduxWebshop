@@ -76,9 +76,10 @@ class App extends Component {
       if (parseInt(this.state.creditCardNumber,10) === creditCardNums[i]) {
         this.setState ({validation: true});
         this.setState ({cartItems:[]});
+        this.setState ({creditCardError:''});
       } else {
-        this.setState({validation:false});
-        this.setState({creditCardError:'Your Credit Card Number is Invalid'});
+        this.setState ({validation:false});
+        this.setState ({creditCardError:'Your Credit Card Number is Invalid'});
       }
     }
   }

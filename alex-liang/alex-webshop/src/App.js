@@ -119,7 +119,7 @@ class App extends Component {
             <Route path='/Success' render={() =>
               <Thankyou
                 totalCost={this.state.totalCost}
-                email={this.state.email}
+                email={this.state.Email}
                 resetValidation={this.resetValidation}
 
               />

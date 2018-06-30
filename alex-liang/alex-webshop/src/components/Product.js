@@ -10,7 +10,8 @@ class Product extends Component{
     };
   }
   render() {
-    let itemList = this.props.products.map((item) =>
+    let itemList =
+    this.props.products.map((item) =>
       <div className='Item' key={item.id}>
         <div className='Item-name'>
           {item.name}
@@ -40,7 +41,9 @@ class Product extends Component{
     return(
       <div className="Item-list">
         <h1>Cool Items For Sale!</h1>
-        {itemList}
+        <div className="Item-list-flex">
+          {itemList}
+        </div>
       </div>
     );
   }

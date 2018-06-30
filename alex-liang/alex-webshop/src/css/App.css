@@ -1,3 +1,5 @@
+
+
 .App {
 }
 .App-header {
@@ -15,6 +17,9 @@
   border-radius:0%;
   font-size: 1.2em;
 }
+.App-cart:hover .Cart-list {
+  display:block;
+}
 .App-cartpic{
   border-radius:0%;
   text-align:left ;
@@ -26,17 +31,30 @@
   border-radius: 100%;
 }
 .Item {
+  flex: 0 0 40%;
+  color:black;
+  font-size: 1em;
+  max-width: 20rem;
+  background-color: white;
   border: 5px solid blue;
-  margin: 0px;
+  margin: 1em auto;
   border-radius: 5px;
+  box-shadow: 0 0 0.3rem 0.2rem red;
 }
 .Item-list{
-  text-align: center;
+text-align: center;
+  color: white;
+  background-image:url(./shop-background.jpg);
   border: 5px solid red;
   border-radius:5px;
 }
+.Item-list-flex{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
 .Item-img{
-  display: block;
+
   margin-left: auto;
   margin-right: auto;
   height:200px;
@@ -51,26 +69,34 @@
 }
 
 .Cart-list {
-  background-color: white;
-  color:black;
+  display:none;
   position: absolute;
-  right: 10px;
+  right: 0.5em;
   z-index: 1;
-  text-align: center;
-  border-radius:5px;
+  padding: 0.5em auto;
 }
-.Cart-list:hover{
-
+.Cart-Item {
+  color:black;
+  font-size: 0.5em;
+  max-width: 10rem;
+  background-color: white;
+  border: 5px solid blue;
+  margin: 1em auto;
+  border-radius: 5px;
+  padding:0.5em ;
+  box-shadow: 0 0 0.3rem 0.2rem red;
 }
 .Form-Item{
   text-align: right;
   display: block;
 }
 .Form{
+  color:black;
   background-color: Yellow;
   padding: 20px;
 }
 .App-nav{
+  color: blue;
   display:flex;
   justify-content: space-around;
   border-radius: 20%;
@@ -80,7 +106,6 @@
   background-color: red;
   font-weight: bold;
   font-size: 1em;
-
 }
 .Fine-Print{
   font-size: 0.2em;

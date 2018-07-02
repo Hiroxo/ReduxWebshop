@@ -19,21 +19,20 @@ class Product extends Component{
         <div className='Item-cost'>
           ${item.cost}
         </div>
-        <div className='Item-img'>
-          <img src= {item.imgurl}  alt="item-pic"/>
+
+          <img src={item.imgurl} className='Item-img' alt="item-pic"/>
           <button onClick={(e)=>this.props.addItemToCart(e,{item})}>
             Add {item.name} to Cart
           </button>
-        </div>
         <div className='Item-quant'>
           <form onSubmit={(e)=>this.props.addItemToCart(e,{item})}>
             <label>
               Quantity:
             </label>
-            <input type="number" name='quantity'  onChange={
+            <input type="number" className='Quantity' onChange={
               (e) => this.props.changeQuant(e,{item})
             }/>
-            <input type="submit" value="Add Item To Cart"/>
+            <input type="submit" value="Add Amount To Cart"/>
           </form>
         </div>
       </div>

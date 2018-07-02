@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 
-
-
-
-
 class Checkout extends Component{
   constructor(props){
     super(props)
     this.state ={
       cartItems:this.props.cartItems,
-
-
-
     };
   }
   updateCNN = (e) => {
@@ -40,23 +33,24 @@ class Checkout extends Component{
               Item Price: ${cartItem.quantity*cartItem.item.cost}
             </p>
             <button onClick={(e)=>this.props.removeItem(e,currentItems.indexOf(cartItem))}>
-              remove {cartItem.item.name} number  {(currentItems.indexOf(cartItem)+1)} from Cart
+              Remove {cartItem.item.name} number  {(currentItems.indexOf(cartItem)+1)} from Cart
             </button>
         </div>
       );
 
       let checkoutForm = (
         <div className="Checkout-Form">
+          <h2>Payment Information </h2>
           <form className="Form" onSubmit={(e) => {
             this.props.validate(e,{currentItems});
-            
+
           }}>
-            <h2>Payment Information </h2>
+
 
             <div className="Form-Item">
               <label>Email:</label>
               <input type="email"
-                className="Form-Email"
+                className="Form-Input"
                 name="Email"
                 placeholder="You.are@awesome.com"
                 onChange={(e)=>this.props.updateUserInfo(e)}
@@ -65,7 +59,7 @@ class Checkout extends Component{
             <div className="Form-Item">
               <label>Address:</label>
               <input type="string"
-                className="Form-Address"
+                className="Form-Input"
                 name="Address"
                 placeholder="I live here"
                 onChange={(e)=>this.props.updateUserInfo(e)}
@@ -74,7 +68,7 @@ class Checkout extends Component{
             <div className="Form-Item">
               <label>State:</label>
               <input type="string"
-                className="Form-State"
+                className="Form-Input"
                 name="State"
                 onChange={(e)=>this.props.updateUserInfo(e)}
               />
@@ -82,32 +76,39 @@ class Checkout extends Component{
             <div className="Form-Item">
               <label>Zip Code:</label>
               <input type="number"
-                className="Form-ZipCode"
+                className="Form-Input"
                 name="ZipCode"
                 onChange={(e)=>this.props.updateUserInfo(e)}
               />
             </div>
             <div className="Form-Item">
-
               <label>Credit Card Number:</label>
               <input type="number"
-                className="Form-CreditCardNum"
+                className="Form-Input"
                 name="creditCardNumber"
                 onChange={(e)=>this.props.updateUserInfo(e)}
               />
             </div>
-            <button type="submit" className="Submit">
-              Checkout
-            </button>
-            <div className="Error-Message">{this.props.creditCardError}</div>
-
+            <div className="Form-Item">
+              <button type="submit" className="Submit">
+                Checkout
+              </button>
+            </div>
+            <div className="Form-Item">
+              <div className="Error-Message">
+                {this.props.creditCardError}
+              </div>
+            </div>
           </form>
         </div>
       )
       return(
         <div className="Item-list">
           <h1>Checkout List</h1>
-          {itemList}
+          <div className="Item-list-flex">
+
+            {itemList}
+          </div>
           <h2>Total Price = ${totalCost}</h2>
           {checkoutForm}
         </div>

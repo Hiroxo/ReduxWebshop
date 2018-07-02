@@ -1,6 +1,11 @@
-
+.About-Info{
+  text-align: center;
+}
 
 .App {
+}
+.Header-Link{
+  color:cyan;
 }
 .App-header {
   text-align: center;
@@ -34,12 +39,14 @@
   flex: 0 0 40%;
   color:black;
   font-size: 1em;
-  max-width: 20rem;
+  max-width: 17rem;
   background-color: white;
   border: 5px solid blue;
   margin: 1em auto;
   border-radius: 5px;
   box-shadow: 0 0 0.3rem 0.2rem red;
+  padding:0.3em;
+
 }
 .Item-list{
 text-align: center;
@@ -47,6 +54,7 @@ text-align: center;
   background-image:url(./shop-background.jpg);
   border: 5px solid red;
   border-radius:5px;
+  padding:0.5em
 }
 .Item-list-flex{
   text-align: center;
@@ -61,7 +69,10 @@ text-align: center;
   width:200px;
 }
 .Item-name{
-  font-size: 1.5em;
+  font-size: 1em;
+}
+.Item-quant{
+  vertical-align: bottom;
 }
 @keyframes App-cartpic-spin {
   from { transform: rotate(0deg); }
@@ -86,14 +97,28 @@ text-align: center;
   padding:0.5em ;
   box-shadow: 0 0 0.3rem 0.2rem red;
 }
+.Quantity{
+  width:50px;
+}
+label{
+}
 .Form-Item{
-  text-align: right;
-  display: block;
+  float:right;
+
 }
 .Form{
+  padding: 20px;
+  width:300px;
+  display:inline-block;
+
+
+}
+.Checkout-Form{
+  box-shadow: 0 0 0.3rem 0.2rem red;
+  text-align: center;
   color:black;
   background-color: Yellow;
-  padding: 20px;
+
 }
 .App-nav{
   color: blue;

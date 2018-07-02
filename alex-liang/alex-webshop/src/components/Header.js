@@ -42,8 +42,8 @@ class ShoppingCart extends Component{
     return(
       <div className="App-header">
         <div className="App-nav" alt="cartpic">
-          <Link to='/About'>About</Link>
-          <Link to='/Products'>Cool Stuff For Sale!</Link>
+          <Link to='/About' className="Header-Link">About</Link>
+          <Link to='/Products' className="Header-Link">Cool Stuff For Sale!</Link>
           <div className="App-cart">
             <Link to='/Checkout'>
               <button>

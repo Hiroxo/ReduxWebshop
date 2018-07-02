@@ -16,5 +16,24 @@
     "cost":99,
     "id":3,
     "imgurl":"./img/logo.svg"
+  },
+  {
+    "name":"Bucket o' Strawberries",
+    "cost":54,
+    "id":4,
+    "imgurl":"https://media.giphy.com/media/Q18esPAwMiofe/giphy.gif"
+  },
+  {
+    "name":"Big Ass Sandwich",
+    "cost":41,
+    "id":5,
+    "imgurl":"https://media.giphy.com/media/3o7aD5lNmqChBB5yE0/source.gif"
+  },
+  {
+    "name":"SzeChuan Dipping Sauce",
+    "cost":15000,
+    "id":6,
+    "imgurl":"./img/SzeChuan-Sauce.jpeg"
   }
+
 ]

@@ -24,14 +24,14 @@
     "imgurl":"https://media.giphy.com/media/Q18esPAwMiofe/giphy.gif"
   },
   {
-    "name":"Big Ass Sandwich",
+    "name":"Big-Ass Sandwich",
     "cost":41,
     "id":5,
     "imgurl":"https://media.giphy.com/media/3o7aD5lNmqChBB5yE0/source.gif"
   },
   {
     "name":"SzeChuan Dipping Sauce",
-    "cost":15000,
+    "cost":14700,
     "id":6,
     "imgurl":"./img/SzeChuan-Sauce.jpeg"
   }

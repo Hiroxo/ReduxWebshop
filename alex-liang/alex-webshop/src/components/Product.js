@@ -1,17 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 //import products from './../products.json';
-
-
-
-class Product extends Component{
-  constructor(props){
-    super(props);
-    this.state={
-    };
+const checkNum = (number) => {
+  if (isNaN(number)) {
+    return ('')
+  } else {
+    return(number)
   }
-  render() {
-    let itemList =
-    this.props.products.map((item) =>
+}
+
+const Product = props => {
+    let itemList = props.products.map((item) =>
       <div className='Item' key={item.id}>
         <div className='Item-name'>
           {item.name}
@@ -19,20 +17,20 @@ class Product extends Component{
         <div className='Item-cost'>
           ${item.cost}
         </div>
-
           <img src={item.imgurl} className='Item-img' alt="item-pic"/>
-          <button onClick={(e)=>this.props.addItemToCart(e,{item})}>
+          {/*<button onClick={(e)=>props.addItemToCart(e,{item})}>
             Add {item.name} to Cart
-          </button>
+          </button>*/}
         <div className='Item-quant'>
-          <form onSubmit={(e)=>this.props.addItemToCart(e,{item})}>
+          <form onSubmit={(e)=> props.addItemToCart(e,{item})}>
             <label>
               Quantity:
             </label>
-            <input type="number" className='Quantity' onChange={
-              (e) => this.props.changeQuant(e,{item})
-            }/>
-            <input type="submit" value="Add Amount To Cart"/>
+            <input type='number' className='Quantity'
+              value={checkNum(props.quantity[item.name])}
+              onChange={(e) => props.changeQuant(e,{item})}
+            />
+            <input type="submit" value={"Add " + item.name + " To Cart"}/>
           </form>
         </div>
       </div>
@@ -45,6 +43,6 @@ class Product extends Component{
         </div>
       </div>
     );
-  }
+
 }
 export default Product;

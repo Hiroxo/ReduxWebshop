@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
 class Thankyou extends Component {
-  componentWillMount () {
-    this.props.resetValidation()
+
+  componentWillMount = () => {
+    this.props.resetValidation();
   }
-
-  render () {
-
-
+  render() {
     return (
       <div className="Item-list">
         <h2>

@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
-import './css/App.css';
-import Product from './components/Product.js';
-import products from './products.json';
-import About from './components/About.js';
-import Thankyou from './components/Thankyou.js';
-import Checkout from './components/Checkout.js';
-import Header from './components/Header.js';
+import '../css/App.css';
+import Product from '../components/Product.js';
+import About from '../components/About.js';
+import Thankyou from '../components/Thankyou.js';
+import Checkout from '../components/Checkout.js';
+import NoMatch from '../components/NoMatch.js';
+import Header from '../components/Header.js';
+import TotalCost from '../components/TotalCost.js'
 import { Redirect, Route, Switch } from "react-router-dom";
-import creditCardNums from './creditCardNumbers.json';
+import creditCardNums from '../creditCardNumbers.json';
+import products from '../products.json';
+
+
+let initialQuant={};
+  products.map((item) =>
+    initialQuant[item.name] = 0
+  )
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state ={
       cartItems:[],
-      quantity:1,
-      currentItem:[],
+      quantity:initialQuant,
       totalCost:0,
       Email:'',
       Address:'',
@@ -26,6 +33,7 @@ class App extends Component {
       creditCardError:null
     };
   }
+
   removeItem = (e,index) => {
     let {cartItems} = this.state;
     if (index>-1){
@@ -34,33 +42,33 @@ class App extends Component {
     this.setState({
       cartItems,
     });
+    this.setState({
+      totalCost:TotalCost(this.state.cartItems)
+    });
   }
   changeQuant = (e,item) => {
-      this.setState({quantity:parseInt(e.target.value,10)});
-      this.setState({currentItem: item})
+      let quant = parseInt(e.target.value,10);
+      let name = item.item.name;
+      let {quantity} = this.state;
+      quantity[name] = quant
+      this.setState({quantity,});
   }
   addItemToCart = (e,itemToAdd) => {
-    if (this.state.quantity>0 && this.state.quantity===parseInt(this.state.quantity,10)) {
-      itemToAdd.quantity = this.state.quantity;
+    e.preventDefault();
+    if (this.state.quantity[itemToAdd.item.name]>0 &&
+    this.state.quantity[itemToAdd.item.name] ===
+    parseInt(this.state.quantity[itemToAdd.item.name],10)) {
+      itemToAdd.quantity = this.state.quantity[itemToAdd.item.name];
       let {cartItems} = this.state;
       cartItems.push(itemToAdd);
       this.setState({
         cartItems,
       });
-      let currentItems = this.state.cartItems
-      let { totalCost } = this.state;
-      let i;
-      for (i=0;i<(currentItems.length);i++){
-        totalCost= totalCost+((currentItems[i]['item']['cost'])*currentItems[i]['quantity'])
-      }
       this.setState({
-        totalCost,
+        totalCost:TotalCost(this.state.cartItems)
       });
     } else {
       alert('check your quantity')
-    }
-    if (e !== undefined){
-      e.preventDefault();
     }
   }
   updateUserInfo = (e) => {
@@ -98,6 +106,7 @@ class App extends Component {
           <Switch>
             <Route path='/Products' render={() =>
               <Product
+                quantity={this.state.quantity}
                 changeQuant={this.changeQuant}
                 addItemToCart={this.addItemToCart}
                 products={products}
@@ -110,7 +119,6 @@ class App extends Component {
                 updateUserInfo={this.updateUserInfo}
                 validate={this.validate}
                 creditCardError={this.state.creditCardError}
-
               />
             ) : (
               <Redirect push to="/Success"/>)
@@ -118,16 +126,19 @@ class App extends Component {
             <Route path='/About' component={About}/>
             <Route path='/Success' render={() =>
               <Thankyou
-                totalCost={this.state.totalCost}
                 email={this.state.Email}
                 resetValidation={this.resetValidation}
-
+                totalCost={this.state.totalCost}
               />
             }/>
-
+            <Route path='*' component={NoMatch} />
           </Switch>
         </div>
     );
   }
 }
+
+
+
+
 export default App;

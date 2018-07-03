@@ -30,7 +30,7 @@
   text-align:left ;
 
 }
-.App-cartpic:hover{
+.App-cart:hover .App-cartpic{
   background-color:red;
   animation: App-cartpic-spin infinite 1s ;
   border-radius: 100%;
@@ -128,6 +128,7 @@ label{
   font-size: 1.2em;
 }
 .Error-Message{
+  text-align: center;
   background-color: red;
   font-weight: bold;
   font-size: 1em;

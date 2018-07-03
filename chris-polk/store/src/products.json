@@ -4,32 +4,42 @@
 {
 
     "id": 1,
-    "name": "Casper",
-    "price": 23
+    "name": "Ca5p3r",
+    "price": 530,
+    "imgUrl": "./images/Casper.png",
+    "desc": "One of his first nicknames, it accurately described his earlier life. He was known to be a smiley kid, but disppear without any warning, like a friendly ghost or something. The 5 and 3 are symbolic of a time when he put his goal 400 meter time into his name in his younger years."
 },
 
 {
    "id": 2,
    "name": "Chris",
-   "price": 20
+   "price": 20,
+   "imgUrl": "./images/IMG_5461.JPG",
+   "desc": "The original nickname he was given, it's nothing more than a shorthand of his full government name Christopher. It can however, can have him be mistaken as a multitude of other full names as well."
 },
 
 {
     "id": 3,
     "name" : "C-2PO",
-    "price": 100
+    "price": 120,
+    "imgUrl": "./images/robots.png",
+    "desc": "A more recent nickname, it sounds like a meshing together of the 2 iconic androids of the Star Wars franchise, R2D2 and C-3P0. He's still getting used to it, but it will probably be unique to the eROI family."
 },
 
 {
     "id": 4,
     "name" : "Polk",
-    "price": 200
+    "price": 10,
+    "imgUrl": "./images/polk-prezzy.jpg",
+    "desc": "One of his least favorite nicknames, it reminds him of the apparently shitty president, James K. Polk. He looks nothing like this random man, so this the budget option."
 },
 
 {
     "id": 5,
     "name" : "CP2",
-    "price": 1000
+    "price": 1000,
+    "imgUrl": "./images/cp2-image.png",
+    "desc": "The one his father gave him, it's a reminder in that he is the second, and hopefully better, edition of his older man. All the kid can do is hope for that to be true..."
 }
 
 ]

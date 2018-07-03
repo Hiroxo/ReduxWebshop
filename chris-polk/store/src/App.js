@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import Items from './Items.js';
 import Cart from './cart.js';
+import Checkout from './checkout.js';
+import Header from './Header.js';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
+
+
 
 const initialState = {
   shoppingList: [],
   quantity: 1
 };
+
+
 
 class App extends Component {
 
@@ -34,38 +41,49 @@ class App extends Component {
 
     this.setState({
       shoppingList,
-    });
+    })
+  }
+
+    removeItem = (e,index) => {
+      const { shoppingList } = this.state;
+      if (index > -1) {
+        shoppingList.splice(index,1);
+      }
+      this.setState({
+        shoppingList,
+      });
 
     if (e !== undefined) {
         e.preventDefault();
     }
 
-    if(this.state.shoppingList[0] !== undefined) {
-      console.log(this.state.shoppingList);
-    } else {
-      alert('shoppingList is undefined')
-    }
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <button className= "purchase"> Purchase! </button>
-          <h1 className="App-title">A Store For Certain "Nicknames"</h1>
-        </header>
-        <div>
-          <Items
-            addItemToCart = {this.addItemToCart}
-            changeQuant= {this.changeQuant}
-            />
-          <Cart />
-        </div>
-          <div className="clearIt">
-          <button onClick= {this.reset}>
-              Clear List!
-           </button>
-          </div>
+        <Header />
+          <Switch>
+            <Route path='/cart' render = { () =>
+                <Cart
+                  cartItems={this.state.shoppingList}
+                  removeItem={this.removeItem}
+                  clearList={this.reset}
+                />
+            } />
+              <Route path='/home' render = {() =>
+                <Items
+                addItemToCart = {this.addItemToCart}
+                changeQuant= {this.changeQuant}
+                />
+            } />
+            <Route path='/checkout' render ={ () =>
+                <Checkout
+                    shoppingList={this.state.shoppingList}
+                    reset = {this.reset}
+                />
+            } />
+          </Switch>
       </div>
     );
   }

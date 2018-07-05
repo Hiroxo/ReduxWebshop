@@ -1,25 +1,22 @@
 .App {
   text-align: center;
 }
-/*
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-*/
+
 .App-header {
-  background-color: #3f2a14;
-  height: 70px;
-  padding: 30px;
-  color: white;
+  background-color: #DB8C44;
+  height: 105px;
+  padding: 20px;
+  color: black;
 }
 
 .App-title {
   font-size: 1.5em;
+  color: white;
+  text-shadow: 1px 1px 23px black, 0 0 25px brown, 0 0 5px black;
 }
 
 .App-caption{
-  font-size: 1.0em;
+  font-size: 0.9em;
 }
 
 .App-intro {
@@ -36,28 +33,105 @@
   border-radius: 100%;
   text-align: left;
   height: 55px;
+}
 
+.gallery{
+  margin: 50px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 600px;
+}
+
+.gallery:hover {
+    border: 1px solid black;
 }
 
 .productList{
   text-align: center;
 }
 
+.productPrice{
+  font-size: 1.5em;
+}
+/*
 .productImage{
   display: block;
   margin-left: auto;
   margin-right: auto;
   height: 50%;
   width: 50%;
+  border-radius: 30px;
+  border: 1px solid #021a40;
+  box-shadow: 5px 5px 5px grey;
 }
-
+*/
 .productName{
   font-size: 2.5em;
 }
 
-/*
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.HomePage {
+  border-radius: 30px;
+  margin: auto;
+  width: 220px;
+  line-height: 70px;
+  text-align: center;
+  font-size: 25px;
+  border: 2px solid black;
+  box-shadow: 5px 5px 5px grey;
 }
-*/
+
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content{
+  display: none;
+  position: left;
+  background-color: #f9f9f9;
+  min-width: 20px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 2px 16px;
+  font-size: 0.8em;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display:block;
+}
+
+.AboutPage {
+  width: 600px;
+  line-height: 45px;
+  text-align: center;
+  font-size: large;
+  margin: auto;
+  /*border-radius: 30px;*/
+  border: 2px solid #f69c55;
+  border-left: 6px solid #f69c55;
+  background-color: #ffedcc;
+  /*box-shadow: 2.5px 2.5px 5px #f69c55;*/
+}
+
+.FormItem {
+  text-align: center;
+  display: block;
+}
+
+.checkout {
+    margin: auto;
+    width: 500px;
+    border-radius: 30px;
+    border: 1px solid maroon;
+    box-shadow: 2px 2px 5px maroon;
+}
+
+.thankyou {
+  font-size: 25px;
+  margin: auto;
+  width: 500px;
+  line-height: 50px;
+  border-radius: 30px;
+  border: 3px solid lightgreen;
+  box-shadow: 2px 2px 5px green;
+}

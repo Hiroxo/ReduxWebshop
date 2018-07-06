@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 
+
 class Thankyou extends Component {
 
   componentWillMount = () => {
     this.props.resetValidation();
+
   }
+  componentDidMount = () =>{
+    this.props.clearCart();
+  }
+
   render() {
+
     return (
       <div className="Item-list">
         <h2>

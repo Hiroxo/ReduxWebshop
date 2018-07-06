@@ -1,28 +1,32 @@
 import React from 'react';
 
 const Checkout = props => {
+  const onRemove = (e,index) => {
+    e.preventDefault();
+    props.removeItem(index);
+  }
   if (props.cartItems[0]!==undefined){
     let currentItems=props.cartItems
     let totalCost=0;
     let i;
     for (i=0;i<(currentItems.length);i++){
-      totalCost= totalCost+((currentItems[i]['item']['cost'])*currentItems[i]['quantity'])
+      totalCost= totalCost+((currentItems[i]['cost'])*currentItems[i]['quantity'])
     }
     let itemList = currentItems.map((cartItem) =>
       <div className='Item' key={currentItems.indexOf(cartItem)}>
         <div className='Item-name'>
           Item number:
           {(currentItems.indexOf(cartItem)+1)}<br></br>
-          {cartItem.item.name}
+          {cartItem.name}
         </div>
-          <img className='Item-img' src= {cartItem.item.imgurl}  alt="item-pic"/>
+          <img className='Item-img' src= {cartItem.imgurl}  alt="item-pic"/>
           <p>
             Quantity: {cartItem.quantity}<br></br>
-            Price per unit: ${cartItem.item.cost}<br></br>
-            Item Price: ${cartItem.quantity*cartItem.item.cost}
+            Price per unit: ${cartItem.cost}<br></br>
+            Item Price: ${cartItem.quantity*cartItem.cost}
           </p>
-          <button onClick={(e)=>props.removeItem(e,currentItems.indexOf(cartItem))}>
-            Remove {cartItem.item.name} number  {(currentItems.indexOf(cartItem)+1)} from Cart
+          <button onClick={(e)=>onRemove(e,currentItems.indexOf(cartItem))}>
+            Remove {cartItem.name} number  {(currentItems.indexOf(cartItem)+1)} from Cart
           </button>
       </div>
     );

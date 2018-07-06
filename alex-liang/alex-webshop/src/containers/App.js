@@ -134,6 +134,7 @@ class App extends Component {
                 totalCost={this.state.totalCost}
               />
             }/>
+            <Route path='/' component={About} />
             <Route path='*' component={NoMatch} />
           </Switch>
         </div>
